@@ -271,31 +271,21 @@ module.exports = {
     {
       resolve: "gatsby-source-graphql",
       options: {
-          typeName: "GraphCMS",          // The top level query type, can be anything you want!
-          fieldName: "gcms",          // The field you'll query against, can also be anything you want.
+          typeName: "GraphCMS",
+          fieldName: "gcms",  
           // url: "https://api-apeast.graphcms.com/v1/cjnedqcnn0rp101ijhqab8u3z/master",          // King
           url: "https://api-euwest.graphcms.com/v1/cjnmygjvz51z701g5ucoptqoj/master",          // Daniel
       },
     },
-    // {
-    //   resolve: `gatsby-source-graphcms`,
-    //   options: {
-    //     endpoint: `https://api-apeast.graphcms.com/v1/cjnedqcnn0rp101ijhqab8u3z/master`,
-    //     token: `eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ2ZXJzaW9uIjoxLCJ0b2tlbklkIjoiOTI4ZjkzMmEtZGFkNy00ZWEyLTljYTEtNjcwNDc5NzgzNDM5In0.GuNgxf68-HhaUfKpZGA30Zacyk59DwcPn4qihQfjvI8`,
-    //     query: `{
-    //       articles {
-    //         id
-    //         title
-    //         slug
-    //         category
-    //         coverImage {
-    //           id
-    //           mimeType
-    //           url
-    //         }
-    //       }
-    //     }`
-    //   },
-    // }
+    {
+      resolve: `gatsby-source-datocms`,
+      options: {
+        apiToken: `6daa14523b98567226d1249551780e`, 
+        previewMode: false,
+        disableLiveReload: false,
+        // Custom API base URL
+        // apiUrl: 'https://littt.admin.datocms.com',
+      },
+    },
   ]
 };

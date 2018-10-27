@@ -31,6 +31,7 @@
     "gatsby-remark-prismjs": "^3.0.0",
     "gatsby-remark-responsive-iframe": "^2.0.5",
     "gatsby-remark-smartypants": "^2.0.5",
+    "gatsby-source-datocms": "^1.1.14",
     "gatsby-source-filesystem": "^2.0.1",
     "gatsby-source-graphcms": "^1.0.0-alpha.3",
     "gatsby-source-graphql": "^2.0.4",

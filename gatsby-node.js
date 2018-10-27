@@ -37,6 +37,30 @@ const initQuery = `{
       createdAt
     }
   }
+  _allArticlesMeta {
+    count
+  }
+  allArticles {
+    id
+    slug
+    _allTitleLocales {
+      locale
+      value
+    }
+    _allCategoryLocales {
+      locale
+      value
+    }
+    coverimage {
+      id
+    }
+    _allContentLocales {
+      locale
+      # value
+    }
+    _modelApiKey
+    updatedAt  
+  }
 }`
 
 exports.onCreateNode = ({ node, getNode, actions }) => {

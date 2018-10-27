@@ -127,6 +127,23 @@ export const query = graphql`
         createdAt
       }
     }
+    allArticles {
+      id
+       category
+      coverimage {
+        id
+      }
+      _allCategoryLocales {
+        locale
+        value
+      }
+      _allContentLocales {
+        locale
+        value
+      }
+      title
+      slug
+    }
     site {
       siteMetadata {
         facebook {
