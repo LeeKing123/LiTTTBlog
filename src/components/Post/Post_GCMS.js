@@ -64,7 +64,7 @@ const GCMS_Post = props => {
               switch (m.mimeType) {
                 case "video/mp4":
                   return <div style={{width: "100%"}}>
-                            <video width="90%" style={{margin: "0 5%"}} autoplay loop controls>
+                            <video width="90%" style={{margin: "0 5%"}} autoplay loop muted>
                                 <source src={`${m.url}`} type="video/mp4" ></source>
                             </video>                
                             <br/>
