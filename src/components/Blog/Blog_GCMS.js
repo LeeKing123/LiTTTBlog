@@ -39,11 +39,11 @@ const GCMS_Blog = props => {
         }
         @above desktop {
           ul {
-            max-width: ${theme.text.maxWidth.desktop};
+            max-width: 700; 
           }
         }
       `}</style>
-    </React.Fragment>
+    </React.Fragment>  /*  max-width: ${theme.text.maxWidth.desktop} */
   );
 };
 

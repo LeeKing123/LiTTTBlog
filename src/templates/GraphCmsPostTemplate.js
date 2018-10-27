@@ -10,7 +10,6 @@ import Post from "../components/Post";
 import GCMS_Post from "../components/Post/Post_GCMS";
 
 import { ThemeContext } from "../layouts";
-
 import TalkyardCommentsIframe from '@debiki/gatsby-plugin-talkyard';
 
 const GraphCmsPostTemplate = props => {
@@ -58,54 +57,6 @@ GraphCmsPostTemplate.propTypes = {
 
 export default GraphCmsPostTemplate;
 
-//eslint-disable-next-line no-undef
-/**
- *     post: markdownRemark(fields: { slug: { eq: $slug } }) {
-      id
-      html
-      fields {
-        slug
-        prefix
-      }
-      frontmatter {
-        title
-        author
-        category
-        cover {
-          childImageSharp {
-            resize(width: 300) {
-              src
-            }
-          }
-        }
-      }
-    }
-
-    gcms {
-      article(slug: { eq: $slug }) {
-        id
-        title
-        slug
-        category
-        content
-        author
-        coverImage {
-          id
-          mimeType
-          url
-        }
-      }
-    }
- */
-
-// article(slug: { eq: $slug })
-// (where: {slug: $slug} )
-// childImageSharp {
-//   resize(width: 300) {
-//     src
-//   }
-// }
-
 export const postQuery = graphql`
   query PostBySlug1($slug: String!) {
     gcms {
@@ -117,6 +68,11 @@ export const postQuery = graphql`
         content
         author
         coverImage {
+          url
+        }
+        media {
+          handle
+          mimeType
           url
         }
         createdAt

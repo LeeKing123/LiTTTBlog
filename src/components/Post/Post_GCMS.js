@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import Slider from "react-slick";
 import "prismjs/themes/prism-okaidia.css";
 
 import asyncComponent from "../AsyncComponent";
@@ -31,6 +32,7 @@ const GCMS_Post = props => {
       title,
       author,
       category,
+      media,
       createdAt
     },
     authornote,
@@ -40,12 +42,50 @@ const GCMS_Post = props => {
     theme
   } = props;
 
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    dots: true,
+  };
+  
   return (
     <React.Fragment>
       <header>
         <Headline title={title} theme={theme} />
         <Meta createdAt={createdAt} author={author} category={category} theme={theme} />
       </header>
+      <div style={{margin: "50px 0"}}>
+        <Slider {...settings}>
+          {
+            media.map(m => {
+              switch (m.mimeType) {
+                case "video/mp4":
+                  return <div style={{width: "100%"}}>
+                            <video width="90%" style={{margin: "0 5%"}} autoplay loop controls>
+                                <source src={`${m.url}`} type="video/mp4" ></source>
+                            </video>                
+                            <br/>
+                          </div>
+                case "image/gif": 
+                  return <div>
+                          <img src={`${m.url}`} style={{width: "90%", margin: "0 5%"}}></img>
+                          <br/>
+                        </div>
+                case "image/jpeg":
+                  return <div>
+                          <img src={`${m.url}`} style={{width: "90%", margin: "0 5%"}}></img>                
+                          <br/>
+                        </div>
+                default:
+                  break;
+              }
+            })
+          }
+        </Slider>
+      </div>
       <GCMS_Bodytext html={content} theme={theme} />
       <footer>
         {/* <Share post={post} theme={theme} /> */}
