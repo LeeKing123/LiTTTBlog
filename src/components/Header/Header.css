@@ -1,0 +1,45 @@
+.header {
+    /* background: rgba(0, 0, 0, 0.1); */
+    position: absolute;
+    width: 100vw;
+    padding: 0px 20px;
+  }
+  
+  .small-logo, .menu {
+    /* color: white !important;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 1rem; */
+    padding: 5px;
+    height: 60px;
+  }
+  
+  .small-logo img { 
+    width: 130px;
+  }
+  
+  .menu ul {
+    list-style: none;
+    margin: auto;
+    text-align: right;
+  }
+  
+  .menu li {
+    display: inline-block;
+    margin: 10px 0px 10px 20px;
+    padding: 5px;
+    cursor: pointer;
+    color: #fff;
+  }
+  
+  .menu li:first-child {
+    color: rgba(255, 255, 255, 0.7);
+  }
+  .menu li a {
+    color: white !important;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 1rem;
+  }
+  
+  

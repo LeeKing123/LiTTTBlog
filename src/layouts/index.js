@@ -2,11 +2,12 @@ import "typeface-open-sans";
 import FontFaceObserver from "fontfaceobserver";
 import PropTypes from "prop-types";
 import React from "react";
+import injectGlobal from "./../shared/globalStyles"
 import { graphql, StaticQuery } from "gatsby";
 
 import { getScreenWidth, timeoutThrottlerHandler } from "../utils/helpers";
 import Footer from "../components/Footer/";
-import Header from "../components/Header";
+import Header1 from "../components/Header/Header1";
 
 export const ThemeContext = React.createContext(null);
 export const ScreenWidthContext = React.createContext(0);
@@ -21,14 +22,16 @@ class Layout extends React.Component {
     this.state = {
       font400loaded: false,
       font600loaded: false,
+      bebasNeueRegularloaded: false,
       screenWidth: 0,
-      headerMinimized: false,
+      header1Minimized: false,
       theme: themeObjectFromYaml
     };
 
     if (typeof window !== `undefined`) {
       this.loadFont("font400", "Open Sans", 400);
       this.loadFont("font600", "Open Sans", 600);
+      this.loadFont("BebasNeueRegular", "BebasNeue-webfont");
     }
   }
 
@@ -146,7 +149,7 @@ class Layout extends React.Component {
               <FontLoadedContext.Provider value={this.state.font400loaded}>
                 <ScreenWidthContext.Provider value={this.state.screenWidth}>
                   <React.Fragment>
-                    <Header
+                    <Header1
                       path={this.props.location.pathname}
                       pages={pages}
                       categories={categoryList}

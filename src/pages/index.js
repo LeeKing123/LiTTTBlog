@@ -18,7 +18,7 @@ class IndexPage extends React.Component {
     const {
       data: {
         posts: { edges: localRemarks = [] },
-        gcms: { articles: graphCMSRemarks = [] },
+        gcms: { articles: graphCMSRemarks = [], featured },
 
         bgDesktop: {
           resize: { src: desktop }
@@ -50,14 +50,12 @@ class IndexPage extends React.Component {
             <Hero scrollToContent={this.scrollToContent} backgrounds={backgrounds} theme={theme} />
           )}
         </ThemeContext.Consumer>
-
-        <hr ref={this.separator} />
-
+        {/* <hr ref={this.separator} /> */}
         <ThemeContext.Consumer>
           {theme => 
             <React.Fragment>
               {/* <Blog posts={localRemarks} theme={theme} /> */}
-              <GCMS_Blog posts={graphCMSRemarks} theme={theme} />              
+              <GCMS_Blog posts={graphCMSRemarks} featured={featured} theme={theme} />              
             </React.Fragment>
           }
         </ThemeContext.Consumer>
@@ -115,6 +113,18 @@ export const query = graphql`
     }
     gcms {
       articles {
+        id
+        title
+        slug
+        category
+        content
+        author
+        coverImage {
+          url
+        }
+        createdAt
+      }
+      featured: articles(where: {blocked: false}) {
         id
         title
         slug

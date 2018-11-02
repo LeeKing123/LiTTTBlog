@@ -1,53 +1,83 @@
 import { FaTag } from "react-icons/fa/";
 import PropTypes from "prop-types";
-import React from "react";
+import React, { Component } from "react";
 import { graphql } from "gatsby";
 import Seo from "../components/Seo";
 import { ThemeContext } from "../layouts";
 import Article from "../components/Article";
 import Headline from "../components/Article/Headline";
 import GCMS_List from "../components/List/List_GCMS";
+import CategoryHero from "../components/Hero/Category_Hero";
+import GCMS_Blog from "../components/Blog/Blog_GCMS";
 
-const CategoryTemplate = props => {
-  const {
-    pageContext: { category },
-    data: {
-      // allMarkdownRemark: { totalCount, edges },
-      gcms: { articles },
-      site: {
-        siteMetadata: { facebook }
+class CategoryTemplate extends Component {
+  separator = React.createRef();
+
+  scrollToContent = e => {
+    this.separator.current.scrollIntoView({ block: "start", behavior: "smooth" });
+  };
+
+  render() {
+    const {
+      pageContext: { category },
+      data: {
+        // posts: { edges: localRemarks = [] },
+        gcms: { articles: graphCMSRemarks = [], featured },
+  
+        bgDesktop: {
+          resize: { src: desktop }
+        },
+        bgTablet: {
+          resize: { src: tablet }
+        },
+        bgMobile: {
+          resize: { src: mobile }
+        },
+        site: {
+          siteMetadata: { facebook }
+        }
       }
-    }
-  } = props;
+    } = this.props;
 
-  const totalCount1 = articles.length
+    const totalCount1 = graphCMSRemarks.length
+    console.log("graphCMSRemarks : ", graphCMSRemarks)
 
-  return (
-    <React.Fragment>
-      <ThemeContext.Consumer>
-        {theme => (
-          <Article theme={theme}>
-            <header>
-              <Headline theme={theme}>
-                <span>Posts in category</span> <FaTag />
-                {category}
-              </Headline>
-              <p className="meta">
-                There {totalCount1 > 1 ? "are" : "is"} <strong>{totalCount1}</strong> post{totalCount1 >
-                1
-                  ? "s"
-                  : ""}{" "}
-                in the category.
-              </p>
-              <GCMS_List articles={articles} theme={theme} />
-            </header>
-          </Article>
-        )}
-      </ThemeContext.Consumer>
+    const backgrounds = {
+      desktop,
+      tablet,
+      mobile
+    };
 
-      <Seo facebook={facebook} />
-    </React.Fragment>
-  );
+    return (
+      <React.Fragment>
+        <ThemeContext.Consumer>
+          {theme => (
+            <CategoryHero category={category} scrollToContent={this.scrollToContent} backgrounds={backgrounds} theme={theme} />
+          )}
+        </ThemeContext.Consumer>
+        {/* <ThemeContext.Consumer>
+          {theme => (
+            <Article theme={theme}>
+              <header>
+                <Headline theme={theme}>
+                  {category} <p className="meta"> <strong>{totalCount1}</strong> </p>
+                </Headline>
+                <GCMS_List articles={graphCMSRemarks} theme={theme} />
+              </header>
+            </Article>
+          )}
+        </ThemeContext.Consumer> */}
+        <ThemeContext.Consumer>
+          {theme => 
+            <React.Fragment>
+              <GCMS_Blog posts={graphCMSRemarks} featured={featured} theme={theme} />              
+            </React.Fragment>
+          }
+        </ThemeContext.Consumer>
+        <Seo facebook={facebook} />
+      </React.Fragment>
+    );    
+  }
 };
 
 CategoryTemplate.propTypes = {
@@ -88,10 +118,24 @@ export const categoryQuery = graphql`
         title
         slug
         category
+        content
         author
         coverImage {
           url
         }
+        createdAt
+      }
+      featured: articles(where: {category: $category, blocked: false}) {
+        id
+        title
+        slug
+        category
+        content
+        author
+        coverImage {
+          url
+        }
+        createdAt
       }
     }
     site {
@@ -99,6 +143,21 @@ export const categoryQuery = graphql`
         facebook {
           appId
         }
+      }
+    }
+    bgDesktop: imageSharp(fluid: { originalName: { regex: "/blog-background/" } }) {
+      resize(width: 1200, quality: 90, cropFocus: CENTER) {
+        src
+      }
+    }
+    bgTablet: imageSharp(fluid: { originalName: { regex: "/blog-background/" } }) {
+      resize(width: 800, height: 1100, quality: 90, cropFocus: CENTER) {
+        src
+      }
+    }
+    bgMobile: imageSharp(fluid: { originalName: { regex: "/blog-background/" } }) {
+      resize(width: 450, height: 850, quality: 90, cropFocus: CENTER) {
+        src
       }
     }
   }
