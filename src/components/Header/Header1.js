@@ -156,9 +156,9 @@ export class Header extends Component {
           open={isMobileMenuOpen}
           onClose={this.handleMobileMenuClose}          
         >
-            <MenuItem>
+            {/* <MenuItem>
                 <Link to="/" className={classes.menuLink1}>Home</Link>
-            </MenuItem>
+            </MenuItem> */}
             <MenuItem>
                 <Link to="/category" className={classes.menuLink1}>Catgories</Link>
             </MenuItem>
@@ -176,15 +176,15 @@ export class Header extends Component {
           <AppBar position="static" style={{backgroundColor: 'black'}}>
             <Toolbar style={{height: 80}}>
               <div className={styles['small-logo']}>
-                <Link to="/" >
+                <a href="http://littt.net" >
                     <img src={logo} height="50" />
-                </Link> 
+                </a> 
               </div>
               <div className={classes.grow} />
               <div className={classes.sectionDesktop}>
-                <Typography className={classes.menuItem} variant="button" color="inherit" noWrap>
+                {/* <Typography className={classes.menuItem} variant="button" color="inherit" noWrap>
                   <Link to="/" className={classes.menuLink}>Home</Link>
-                </Typography>
+                </Typography> */}
                 <Typography className={classes.menuItem} variant="button" color="inherit" noWrap>
                   <Link to="/category" className={classes.menuLink}>Categories</Link>
                 </Typography>

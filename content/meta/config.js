@@ -1,28 +1,28 @@
 module.exports = {
   siteTitle: "LiTTT Blog", // <title>
-  shortSiteTitle: "HeroBlog - GatsbyJS starter", // <title> ending for posts and pages
-  siteDescription: "HeroBlog is a GatsbyJS starter.",
-  siteUrl: "https://gatsby-starter-hero-blog.greglobinski.com",
+  shortSiteTitle: "LiTTT", // <title> ending for posts and pages
+  siteDescription: "LiTTT",
+  siteUrl: "http://littt.net",
   pathPrefix: "/blog",
   siteImage: "preview.jpg",
   siteLanguage: "en",
   // author
-  authorName: "Hye dong & King Lee",
-  authorTwitterAccount: "hyedong&kinglee",
+  authorName: "Daniel",
+  authorTwitterAccount: "daniel",
   // info
-  headerTitle: "Hye dong & King Lee",
-  headerSubTitle: "presents another one GatsbyJS starter",
+  headerTitle: "Daniel",
+  headerSubTitle: "Daniel",
   // manifest.json
-  manifestName: "HeroBlog - a GatsbyJS starter",
-  manifestShortName: "HeroBlog", // max 12 characters
+  manifestName: "LiTTT Blog",
+  manifestShortName: "LiTTT Blog", // max 12 characters
   manifestStartUrl: "/index.html",
   manifestBackgroundColor: "white",
   manifestThemeColor: "#666",
   manifestDisplay: "standalone",
   // social
   authorSocialLinks: [
-    { name: "github", url: "https://github.com/hyedong&kinglee" },
-    { name: "twitter", url: "https://twitter.com/hyedong&kinglee" },
-    { name: "facebook", url: "http://facebook.com/hyedong&kinglee" }
+    { name: "github", url: "https://github.com/daniel" },
+    { name: "twitter", url: "https://twitter.com/daniel" },
+    { name: "facebook", url: "http://facebook.com/daniel" }
   ]
 };
