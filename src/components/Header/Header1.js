@@ -15,6 +15,7 @@ import { withStyles } from '@material-ui/core/styles';
 // Import Style
 import styles from './Header.css';
 import logo from "../../images/png/logo.png";
+import menu from "../../images/png/menu.png";
 
 const customStyles = theme => ({
   root: {
@@ -196,7 +197,7 @@ export class Header extends Component {
               </div>
               <div className={classes.sectionMobile}>
                 <IconButton aria-haspopup="true" onClick={this.handleMobileMenuOpen} color="inherit">
-                  {/* <MoreIcon /> */}asdfas
+                   <img src={menu} height="50" />
                 </IconButton>
               </div>
             </Toolbar>

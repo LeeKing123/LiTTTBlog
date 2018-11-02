@@ -227,13 +227,12 @@ class GCMS_Blog extends Component {
 
                     <br/>
 
-                    <div className={`${classes.widget} ${classes.popularPosts}`}>
+                    {/* <div className={`${classes.widget} ${classes.popularPosts}`}>
                       <Typography className={classes.widgetTitle} variant="h4" gutterBottom>
                           Featured Posts
                       </Typography>
                       <div className={`${classes.widgetContent} ${classes.popularPost}`}>
                         <ul style={{listStyle: 'none'}}>
-                          
                             {featured.map(post => {
                               <li key={post.id} className={classes.item}>
                                 <Link to={post.slug}>
@@ -248,24 +247,9 @@ class GCMS_Blog extends Component {
                                 </Link>   
                               </li>
                             })}
-
-                          <li className={classes.item}>
-                            <Link to={'/category/press-releases/'}>
-                              <div className={`${classes.itemThumbnail}`}>
-                                <a href="" target="_blank">
-                                  <img width='70' className={classes.itemThumbnailImage}
-                                    src="https://1.bp.blogspot.com/-tg2O0mOFFPI/WY1kzNcQ-fI/AAAAAAAACSs/xmX6YhQeN8woozbatLw69UyWYt_7eufhwCKgBGAs/w150-h100-p-k-no-nu/anh-38.jpg"/>
-                                </a>
-                              </div>
-                              <div className={`${classes.itemTitle}`}>
-                                  <Typography variant="subtitle1" gutterBottom>The Challenges Of A Video-To-Light Controller</Typography>
-                              </div>
-                              <div style={{clear: 'both'}}></div>
-                            </Link>
-                          </li>
                         </ul>
                       </div>
-                    </div>
+                    </div> */}
                   </aside>          
                 </div>
               </Grid>
