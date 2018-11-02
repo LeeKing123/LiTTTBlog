@@ -109,7 +109,7 @@ export const postQuery = graphql`
         }
         createdAt
       }
-      featured: articles(where: {blocked_not: true}) {
+      featured: articles {
         id
         title
         slug
