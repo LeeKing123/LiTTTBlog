@@ -102,7 +102,7 @@ const styles = theme => ({
     margin: '15px 0'
   },
   item: {
-    margin: '20px 0', 
+    margin: '5px 0', 
     display: 'flex', 
     alignItems: 'center',
     transition: 'all .35s cubic-bezier(.4,0,.2,1) 0s',
@@ -227,15 +227,16 @@ class GCMS_Blog extends Component {
 
                     <br/>
 
-                    {/* <div className={`${classes.widget} ${classes.popularPosts}`}>
+                    <div className={`${classes.widget} ${classes.popularPosts}`}>
                       <Typography className={classes.widgetTitle} variant="h4" gutterBottom>
                           Featured Posts
                       </Typography>
                       <div className={`${classes.widgetContent} ${classes.popularPost}`}>
                         <ul style={{listStyle: 'none'}}>
                             {featured.map(post => {
-                              <li key={post.id} className={classes.item}>
-                                <Link to={post.slug}>
+                              console.log(post)
+                              return <li key={post.id} className={classes.item}>
+                                <Link to={post.slug} className={classes.item}>
                                   <div className={`${classes.itemThumbnail}`}>
                                       <img width='70' className={classes.itemThumbnailImage}
                                         src={post.coverImage.url}/>
@@ -249,7 +250,7 @@ class GCMS_Blog extends Component {
                             })}
                         </ul>
                       </div>
-                    </div> */}
+                    </div>
                   </aside>          
                 </div>
               </Grid>

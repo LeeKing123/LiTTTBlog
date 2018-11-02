@@ -35,7 +35,7 @@ class IndexPage extends React.Component {
       }
     } = this.props;
 
-    console.log("graphCMSRemarks : ", graphCMSRemarks)
+    console.log("featured : ", graphCMSRemarks)
 
     const backgrounds = {
       desktop,
@@ -55,7 +55,7 @@ class IndexPage extends React.Component {
           {theme => 
             <React.Fragment>
               {/* <Blog posts={localRemarks} theme={theme} /> */}
-              <GCMS_Blog posts={graphCMSRemarks} featured={featured} theme={theme} />              
+              <GCMS_Blog posts={graphCMSRemarks} featured={graphCMSRemarks} theme={theme} />              
             </React.Fragment>
           }
         </ThemeContext.Consumer>
@@ -124,7 +124,7 @@ export const query = graphql`
         }
         createdAt
       }
-      featured: articles(where: {blocked: false}) {
+      featured: articles(where: {blocked_not: true}) {
         id
         title
         slug

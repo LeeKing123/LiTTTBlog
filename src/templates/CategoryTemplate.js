@@ -70,7 +70,7 @@ class CategoryTemplate extends Component {
         <ThemeContext.Consumer>
           {theme => 
             <React.Fragment>
-              <GCMS_Blog posts={graphCMSRemarks} featured={featured} theme={theme} />              
+              <GCMS_Blog posts={graphCMSRemarks} featured={graphCMSRemarks} theme={theme} />              
             </React.Fragment>
           }
         </ThemeContext.Consumer>
@@ -125,7 +125,7 @@ export const categoryQuery = graphql`
         }
         createdAt
       }
-      featured: articles(where: {category: $category, blocked: false}) {
+      featured: articles(where: {category: $category, blocked_not: true}) {
         id
         title
         slug
