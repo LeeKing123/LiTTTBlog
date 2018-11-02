@@ -126,6 +126,11 @@ class Layout extends React.Component {
                 src
               }
             }
+            mobileMenu: imageSharp(fluid: { originalName: { regex: "/a.png/" } }) {
+              original {
+                src
+              }
+            }
           }
         `}
         
@@ -220,6 +225,11 @@ class Layout extends React.Component {
                       main {
                         width: auto;
                         display: block;
+                      }
+                      .navbar-dark .navbar-toggler-icon {
+                        background-image: url(${data.mobileMenu.original.src});/*  -->  to code  */ 
+                        width: 50px;
+                        height: 40px;
                       }
                     `}</style>
                   </React.Fragment>

@@ -58,7 +58,7 @@ a:hover {
 
 /* From Landing Page app.scss */
 .navbar-dark .navbar-toggler-icon {
-  background-image: url(/img/a.png);
+  background-image: url(/img/a.png);/*  -->  to code  */ 
   width: 50px;
   height: 40px;
 }
@@ -94,7 +94,7 @@ a:hover {
   }
   .navbar-collapse:after, .navbar-collapse:before {
     bottom: 99%;
-    left: 90%;
+    left: 92.5%;
     border: solid transparent;
     content: " ";
     height: 0;
