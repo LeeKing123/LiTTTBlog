@@ -1,0 +1,13 @@
+.borderBottom3:after {
+    content:"";
+    background: -webkit-linear-gradient(left, rgba(181, 198, 52, 1) 0%, rgba(169, 46, 145, 1) 100%);
+    display: block;
+    height:5px;
+    width: 100%;
+    position: relative;
+    bottom: 0;
+}
+
+   .fog {
+    opacity: 0.25;
+   }

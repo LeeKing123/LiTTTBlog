@@ -8,12 +8,14 @@ import { graphql, StaticQuery } from "gatsby";
 import { getScreenWidth, timeoutThrottlerHandler } from "../utils/helpers";
 import Footer from "../components/Footer/";
 import Header1 from "../components/Header/Header1";
+import Navigation from "../components/Landing/navigation";
 
 export const ThemeContext = React.createContext(null);
 export const ScreenWidthContext = React.createContext(0);
 export const FontLoadedContext = React.createContext(false);
 
 import themeObjectFromYaml from "../theme/theme.yaml";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 class Layout extends React.Component {
   constructor() {
@@ -114,6 +116,16 @@ class Layout extends React.Component {
               id
               html
             }
+            bgSubMenu1: imageSharp(fluid: { originalName: { regex: "/Panel3@1x.png/" } }) {
+              resize(width: 1200, quality: 90, cropFocus: CENTER) {
+                src
+              }
+            }
+            bgSubMenu2: imageSharp(fluid: { originalName: { regex: "/Panel1@2x.png/" } }) {
+              resize(width: 1200, quality: 90, cropFocus: CENTER) {
+                src
+              }
+            }
           }
         `}
         
@@ -149,7 +161,11 @@ class Layout extends React.Component {
               <FontLoadedContext.Provider value={this.state.font400loaded}>
                 <ScreenWidthContext.Provider value={this.state.screenWidth}>
                   <React.Fragment>
-                    <Header1
+                    {/* <Header></Header> <Header1></Header1> */}
+                    <Navigation
+                      height = {80}
+                      bgSubMenu1={data.bgSubMenu1.resize.src}
+                      bgSubMenu2={data.bgSubMenu2.resize.src}
                       path={this.props.location.pathname}
                       pages={pages}
                       categories={categoryList}

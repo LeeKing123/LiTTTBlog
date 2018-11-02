@@ -1,7 +1,10 @@
 *:focus {
     outline: none !important;
 }
+a:hover {
+    text-decoration: none;
 
+}
 /* On screens that are 992px or less, set the background color to blue */
 @media screen and (max-width: 992px) {
     .slick-next {
@@ -51,3 +54,93 @@
     font-weight: normal;
     font-style: normal;
 } */
+
+
+/* From Landing Page app.scss */
+.navbar-dark .navbar-toggler-icon {
+  background-image: url(/img/a.png);
+  width: 50px;
+  height: 40px;
+}
+
+.navbar-dark .navbar-toggler {
+  border-color: rgba(0,0,0,0);
+}
+.mobile-menu-bg{
+  margin-left: auto;
+}
+@media (max-width: 991px) {
+  .mobile-menu-bg {
+    overflow-y: auto;
+    max-height: 550px;
+  }
+}
+@media (max-width: 991px) {
+  .navbar-collapse {
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      max-width: 320px;
+      margin-left: auto;
+      margin-top: 15px;
+      position: relative;
+      /* background: linear-gradient(to right, rgb(181, 198, 52) 0%, rgb(169, 46, 145) 100%); */
+      border-radius: 27px;
+
+  }
+  .mobile-menu-bg{
+    margin: 2px;
+    background: white;
+    border-radius: 25px;   
+  }
+  .navbar-collapse:after, .navbar-collapse:before {
+    bottom: 99%;
+    left: 90%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+  }
+  
+  .navbar-collapse:after {
+    border-color: rgba(136, 183, 213, 0);
+    border-bottom-color: white;
+    border-width: 18px;
+    margin-left: -32px;
+  }
+  .navbar-collapse:before {
+    /* border-color: rgba(194, 225, 245, 0);
+    border-bottom-color:rgb(169, 46, 145);
+    border-width: 20px; */
+    margin-left: -34px; 
+  }
+}
+@media (min-width: 992px) {
+  .ContactMenu-topMenu-7 {
+    color: white !important;
+  }
+  .ContactMenu-topMenu-50 {
+    color: white !important;
+  }
+  .ContactMenu-topMenu-56 {
+    color: white !important;
+  }
+  .ContactMenu-topMenu-62 {
+    color: white !important;
+  }
+  .ContactMenu-topMenu-68 {
+    color: white !important;
+  }
+}
+
+@media(max-width: 340px) {
+  .WithTheme-WithWidth-Footer---gridContainer-80 {
+    margin-top: 90px !important;
+  }
+}
+
+
+.bg-dark {
+  background-color: black !important;
+}
