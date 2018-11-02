@@ -76,7 +76,7 @@ class CategoryTemplate extends Component {
         </ThemeContext.Consumer>
         <Seo facebook={facebook} />
       </React.Fragment>
-    );    
+    );
   }
 };
 
@@ -125,7 +125,7 @@ export const categoryQuery = graphql`
         }
         createdAt
       }
-      featured: articles(where: {category: $category, blocked_not: true}) {
+      featured: articles(where: {blocked_not: true}) {
         id
         title
         slug

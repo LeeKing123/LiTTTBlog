@@ -23,7 +23,7 @@ class GraphCmsPostTemplate extends Component {
   render() {
     const {
       data: {
-        gcms: { article : post },
+        gcms: { article : post, featured },
         authornote: { html: authorNote },
         site: {
           siteMetadata: { facebook }
@@ -41,6 +41,7 @@ class GraphCmsPostTemplate extends Component {
       pageContext: { next, prev },
     } = this.props;
 
+    console.log("featured :", this.props.data.gcms)
     const backgrounds = {
       desktop,
       tablet,
@@ -63,6 +64,7 @@ class GraphCmsPostTemplate extends Component {
             <Article theme={theme}>
               <GCMS_Post
                 post={post}
+                featured={featured}
                 next={next}
                 prev={prev}
                 authornote={authorNote}
@@ -107,8 +109,19 @@ export const postQuery = graphql`
         }
         createdAt
       }
+      featured: articles(where: {blocked_not: true}) {
+        id
+        title
+        slug
+        category
+        content
+        author
+        coverImage {
+          url
+        }
+        createdAt
+      }
     }
-
     authornote: markdownRemark(fileAbsolutePath: { regex: "/author/" }) {
       id
       html
